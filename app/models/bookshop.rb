@@ -7,6 +7,6 @@ class Bookshop < ApplicationRecord
   has_many :publishers, through: :publisher_bookshops
 
   scope :where_book_with_title, lambda { |title|
-    joins(publishers: :books).select(:name).where(books: { title: title })
+    joins(publishers: :books).where(books: { title: title })
   }
 end
