@@ -5,6 +5,7 @@ class Bookshop < ApplicationRecord
 
   has_many :publisher_bookshops, dependent: :destroy
   has_many :publishers, through: :publisher_bookshops
+  has_many :books, through: :publisher_bookshops
 
   scope :where_book_with_title, lambda { |title|
     joins(publishers: :books).where(books: { title: title })

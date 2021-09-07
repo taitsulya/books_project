@@ -5,5 +5,9 @@ class Book < ApplicationRecord
 
   has_many :author_books, dependent: :destroy
   has_many :authors, through: :author_books
+
   belongs_to :publisher
+
+  has_many :publisher_bookshops, dependent: :destroy
+  has_many :bookshops, through: :publisher_bookshops
 end
